@@ -6,6 +6,7 @@ public class MainApp {
         Validator validator = new Validator();
         Cipher caesarCipher = new Cipher();
         FileManager fileManager = new FileManager();
+        BruteForce bruteForce = new BruteForce();
 
         while (true){
             System.out.println("/nВыберите пункт меню:");
@@ -40,7 +41,9 @@ public class MainApp {
                     String decrypt = caesarCipher.decrypt(fileManager.readFile(source), key);
                     fileManager.writeFile(decrypt , destination);
                 case 3:
-
+                    System.out.print("Введите путь к файлу: ");
+                    source = scanner.nextLine();
+                    bruteForce.decryptByBruteForce(source, caesarCipher.getAlphabet());
                 case 4:
                     return;
 
